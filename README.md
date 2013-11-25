@@ -37,7 +37,7 @@ A small test of ruby power:
 
   --> Usage: curl -i http://localhost:9292/Option
 
-  --> tests: bundle exec ruby tests/app_test.ru
+  --> tests: bundle exec ruby tests/app_tests.ru
 
  ... will be continued ...
 
