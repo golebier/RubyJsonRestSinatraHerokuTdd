@@ -1,51 +1,15 @@
-RubyJsonRestSinatraHerokuTdd
-============================
 
-A small test of ruby power:
+# TEST:
+# add/create
+# get list
+# get a company fields/attributes
+# update a comapny
+# TODO N attachments ...
 
- --> Web service:
+# prepare db
+rm company.sqlite3
 
-   -->  REST / JSON, Ruby, Sinatra, API:
-
-     --> Create new company
-
-     --> Get a list of all companies
-
-     --> Get details about a company
-
-     --> Update a company
-
-     --> Attach pdf-versions ...
-
-   --> Company attributes:
-
-     --> Company ID
-
-     --> Name
-
-     --> Address
-
-     --> City
-
-     --> Country
-
-     --> E-mail (not required)
-
-     --> Phone Number (not required)
-
-     --> One or more directors and beneficial owners.
-
-  --> Prepare:
-
-        bundle
-
-        rake migrate
-
-  --> Run/Start:
-
-        rackup
-
-  --> Usage:
+# OUTPUT=$(curl -X PUT -d '{"name": "AN", "address": "AA", "city": "AC", "country": "ACr"}' http://localhost:9292/company)
 
 	curl -X POST -d '{"name": "AN", "address": "AA", "city": "AC", "country": "ACr"}' http://localhost:9292/api/companies
 //{"id":1,"name":"AN","address":"AA","city":"AC","country":"ACr","email":null,"phone_number":null,"created_at":"2013-11-26T19:14:35+00:00","updated_at":"2013-11-26T20:14:35+01:00"}
@@ -64,36 +28,10 @@ A small test of ruby power:
 	curl -X POST -d '{"address": "CA", "city": "CC", "country": "CCr"}' http://localhost:9292/api/companies
 //Without output, when required lack
 
-  --> Tests:
-
-	bundle exec ruby tests/app_tests.ru
-
-      or
-
-        bash RunCurlTests
-
-Toolchain:
-
-   Ruby (Sinatra)
-
-   Ember, Bootstrap, jQuery
-
-   Less
-
-   PostgreSQL/MySQL/MongoDB
-
-DONE:
-
-   Data versioning
-
-TODO:
-
-   Mongodb not sqlite3
-
-   file attachment
-
-   JS Client
-
-   Hiroku deployment
+# TODO:
+# ... curl -H "Accept: text/csv" 
+# ... curl -H "Accept: text/x-yaml" 
+# ... curl -H "Accept: text/xml" 
+# ... jsonDefault ..
 
 
