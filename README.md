@@ -47,26 +47,43 @@ A small test of ruby power:
 
   --> Usage:
 
-	curl -X POST -d '{"name": "AN", "address": "AA", "city": "AC", "country": "ACr"}' http://localhost:9292/api/companies
-//{"id":1,"name":"AN","address":"AA","city":"AC","country":"ACr","email":null,"phone_number":null,"created_at":"2013-11-26T19:14:35+00:00","updated_at":"2013-11-26T20:14:35+01:00"}
+        Add/Create new company:
 
-	curl -X GET http://localhost:9292/api/companies
-//[{"id":1,"name":"AN","address":"AA","city":"AC","country":"ACr","email":null,"phone_number":null,"created_at":"2013-11-26T19:14:35+00:00","updated_at":"2013-11-26T20:14:35+01:00"}]
+	Command: curl -X POST -d '{"name": "AN", "address": "AA", "city": "AC", "country": "ACr"}' http://localhost:9292/api/companies
 
-	curl -X GET http://localhost:9292/api/company/1
-//{"id":1,"name":"AN","address":"AA","city":"AC","country":"ACr","email":null,"phone_number":null,"created_at":"2013-11-26T19:14:35+00:00","updated_at":"2013-11-26T20:14:35+01:00"}
+        Output: {"id":1,"name":"AN","address":"AA","city":"AC","country":"ACr","email":null,"phone_number":null,"created_at":"2013-11-26T19:14:35+00:00","updated_at":"2013-11-26T20:14:35+01:00"}
 
-        curl -X DELETE http://localhost:9292/api/company/1
+        Display all companies:
 
-	curl -X PUT -d '{"email": "AEm", "phone_number": "APn"}' http://localhost:9292/api/company/1
-//{"id":1,"name":null,"address":null,"city":null,"country":null,"email":"AEm","phone_number":"APn","created_at":"2013-11-26T19:14:35+00:00","updated_at":"2013-11-26T20:26:27+01:00"}
+	Command: curl -X GET http://localhost:9292/api/companies
 
-	curl -X POST -d '{"address": "CA", "city": "CC", "country": "CCr"}' http://localhost:9292/api/companies
-//Without output, when required lack
+	Output: [{"id":1,"name":"AN","address":"AA","city":"AC","country":"ACr","email":null,"phone_number":null,"created_at":"2013-11-26T19:14:35+00:00","updated_at":"2013-11-26T20:14:35+01:00"}]
+
+	Display the company by id:
+
+	Command: curl -X GET http://localhost:9292/api/company/1
+
+	Output: {"id":1,"name":"AN","address":"AA","city":"AC","country":"ACr","email":null,"phone_number":null,"created_at":"2013-11-26T19:14:35+00:00","updated_at":"2013-11-26T20:14:35+01:00"}
+
+	Delete the company by id:
+
+        Command: curl -X DELETE http://localhost:9292/api/company/1
+
+	Update the company by id:
+
+	Command: curl -X PUT -d '{"email": "AEm", "phone_number": "APn"}' http://localhost:9292/api/company/1
+
+	Output: {"id":1,"name":null,"address":null,"city":null,"country":null,"email":"AEm","phone_number":"APn","created_at":"2013-11-26T19:14:35+00:00","updated_at":"2013-11-26T20:26:27+01:00"}
+
+	Add/Create new company, without required:
+
+	Command: curl -X POST -d '{"address": "CA", "city": "CC", "country": "CCr"}' http://localhost:9292/api/companies
+
+	Output: Without output, when required lack
 
   --> Tests:
 
-	bundle exec ruby tests/app_tests.ru
+	bundle exec ruby tests/main_tests.ru
 
       or
 
