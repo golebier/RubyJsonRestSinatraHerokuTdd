@@ -111,6 +111,6 @@ TODO:
 
    JS Client
 
-   Hiroku deployment
+   Heroku deployment
 
 
