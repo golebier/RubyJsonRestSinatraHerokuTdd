@@ -1,0 +1,25 @@
+<dev>
+    AddNew/Create:
+    <form name="company" ng-submit="submit()" action="#/" >
+      Name: <input name="input" ng-model="item.name" required/>
+      <p></p>
+
+      Address: <input name="input" ng-model="item.address"" required/>
+      <p></p>
+
+      City: <input name="input" ng-model="item.city" required/>
+      <p></p>
+
+      Country: <input name="input" ng-model="item.country" required/>
+      <p></p>
+
+      Email: <input type="email" name="input" ng-model="item.email" />
+      <p></p>
+
+      Phone number: <input type="number" name="input" ng-model="item.phone_number" />
+      <p></p>
+
+      <span class="error" ng-show="!!company.$error.required">Fillup required!</span>
+      <input type="submit" id="submit" value="Submit" ng-show="company.$valid" />
+    </form>
+</div>

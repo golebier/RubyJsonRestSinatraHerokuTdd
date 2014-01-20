@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="angularjs-starter">
+  
+  <head lang="en">
+    <meta charset="utf-8">
+    <title>SinatraAndAngularJs</title>
+    <link rel="stylesheet" href="/h5/css/style.css">
+  </head>
+  
+  <body ng-controller="MyCtrl">
+    Sone: <input type="text" ng-model="some"/>{{some}}
+
+    <button ng-click="loadData()">Load Data From Server</button>
+    <ul>
+         <li ng-repeat="item in items">ID: {{item.id}}, Name: {{item.name}}</li>
+    </ul>
+
+
+    <script src="/h5/js/angular.min.js"></script>
+    <script src="/h5/js/app.js"></script>
+  </body>
+
+</html>
+

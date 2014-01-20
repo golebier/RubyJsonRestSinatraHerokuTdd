@@ -1,0 +1,17 @@
+    <div>
+       DisplayAll
+       <ul>
+          <li ng-repeat="item in items">
+             Name: {{item.name}}, Address: {{item.address}}, City: {{item.city}}, Country: {{item.country}}, Email: {{item.email}}, Phone number: {{item.phone_number}}
+             <p></p>
+             <a href="#/displayCompany/{{item.id}}"> Display: {{item.name}} </a>
+             <p></p>
+             <a href="#/editCompany/{{item.id}}"> Edit: {{item.name}} </a>
+             <p></p>
+             <a href="#/deleteCompany/{{item.id}}"> Delete: {{item.name}} </a>
+             <p></p>
+             <p></p>
+          </li>
+       </ul>
+    </div>
+

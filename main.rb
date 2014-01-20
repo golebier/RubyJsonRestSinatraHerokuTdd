@@ -4,12 +4,13 @@ require 'json'
 require 'sinatra'
 require 'data_mapper'
 require 'dm-migrations'
+require 'sinatra/cross_origin'
 
 configure :development do
   set :datamapper_url, "sqlite3://#{File.dirname(__FILE__)}/company.sqlite3"
 end
 configure :test do
-  set :datamapper_url, "sqlite3://#{File.dirname(__FILE__)}/company-test.sqlite3"
+  set :datamapper_url, "sqlite3://#{File.dirname(__FILE__)}/company.sqlite3"
 end
 
 configure :production do
@@ -27,6 +28,13 @@ end
 before do
   content_type 'application/json'
 end
+
+configure do
+  enable :cross_origin
+end
+
+set :protection, :except => [:http_origin]
+use Rack::Protection::HttpOrigin, :origin_whitelist => ['http://localhost:9292']
 
 DataMapper.setup(:default, settings.datamapper_url)
 
