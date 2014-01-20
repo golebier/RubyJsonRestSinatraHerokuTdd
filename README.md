@@ -103,13 +103,13 @@ DONE:
 
    Data versioning
 
+   AngularJs
+
 TODO:
 
    Mongodb not sqlite3
 
    file attachment
-
-   JS Client
 
    Heroku deployment
 
